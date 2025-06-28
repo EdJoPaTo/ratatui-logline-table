@@ -790,7 +790,7 @@ mod tests {
         }
 
         #[rstest]
-        fn test_list_state_empty_list(mut table_buf: Buffer) {
+        fn empty(mut table_buf: Buffer) {
             let mut state = State::new();
 
             let rows = Vec::new();
@@ -802,7 +802,7 @@ mod tests {
         }
 
         #[rstest]
-        fn test_list_state_single_item(mut table_buf: Buffer) {
+        fn single_item(mut table_buf: Buffer) {
             let mut state = State::new();
 
             let widths = [Constraint::Percentage(100)];
