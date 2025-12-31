@@ -27,4 +27,4 @@ strum = { version = "0.26", features = ["derive"] }
 [dev-dependencies]
 crossterm = "0.27"
 ratatui = "0.26"
-rstest = "0.25"
+rstest = "0.26"
