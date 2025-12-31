@@ -84,11 +84,11 @@ use crate::state::State;
 /// user to scroll through the rows and select one of them.
 ///
 /// ```rust
+/// use ratatui::Frame;
 /// use ratatui::layout::{Constraint, Rect};
 /// use ratatui::style::{Style, Stylize};
 /// use ratatui::text::Line;
 /// use ratatui::widgets::Block;
-/// use ratatui::Frame;
 /// use ratatui_logline_table::{State, Table};
 ///
 /// # fn ui(frame: &mut Frame) {

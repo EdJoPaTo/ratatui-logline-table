@@ -10,9 +10,9 @@ use ratatui::layout::{Position, Rect};
 /// # Example
 ///
 /// ```rust
+/// use ratatui::Frame;
 /// use ratatui::layout::{Constraint, Rect};
 /// use ratatui::text::Line;
-/// use ratatui::Frame;
 /// use ratatui_logline_table::{State, Table};
 ///
 /// # fn ui(frame: &mut Frame) {
@@ -85,7 +85,7 @@ impl State {
     }
 
     /// Mutable reference to the index of the first row to be displayed
-    pub fn offset_mut(&mut self) -> &mut usize {
+    pub const fn offset_mut(&mut self) -> &mut usize {
         &mut self.offset
     }
 
@@ -173,7 +173,7 @@ impl State {
     /// This method updates the selected index by moving it up by the given `amount`.
     /// If the `amount` causes the index to go out of bounds (i.e., less than zero),
     /// the first row in the table will be selected.
-    pub fn scroll_up_by(&mut self, amount: usize) -> bool {
+    pub const fn scroll_up_by(&mut self, amount: usize) -> bool {
         self.scroll_keeps_last_in_view = false;
         let before = self.offset;
         self.offset = self.offset.saturating_sub(amount);

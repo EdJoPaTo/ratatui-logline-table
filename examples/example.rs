@@ -60,7 +60,7 @@ impl App {
             Event::Key(key) => match key.code {
                 KeyCode::Char('q') => return Update::Quit,
                 KeyCode::Char('c') if key.modifiers.contains(KeyModifiers::CONTROL) => {
-                    return Update::Quit
+                    return Update::Quit;
                 }
                 KeyCode::Char('+') => {
                     self.render_interval += self.render_interval.min(Duration::from_millis(200));
@@ -106,11 +106,7 @@ impl App {
             Event::Resize(_, _) => return Update::Redraw,
             _ => return Update::Skip,
         };
-        if change {
-            Update::Redraw
-        } else {
-            Update::Skip
-        }
+        if change { Update::Redraw } else { Update::Skip }
     }
 
     fn draw(&mut self, frame: &mut Frame) {
