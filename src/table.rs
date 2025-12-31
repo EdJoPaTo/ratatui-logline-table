@@ -1,14 +1,13 @@
 //! The [`Table`] widget is used to display multiple rows and columns in a grid and allows selecting
 //! one or multiple cells.
 
-use ratatui::buffer::Buffer;
-use ratatui::layout::{Constraint, Flex, Layout, Rect};
-use ratatui::style::{Style, Styled};
-use ratatui::text::{Line, Text};
-use ratatui::widgets::block::BlockExt as _;
-use ratatui::widgets::{
-    Block, Scrollbar, ScrollbarOrientation, ScrollbarState, StatefulWidget, Widget,
-};
+use ratatui_core::buffer::Buffer;
+use ratatui_core::layout::{Constraint, Flex, Layout, Rect};
+use ratatui_core::style::{Style, Styled};
+use ratatui_core::text::{Line, Text};
+use ratatui_core::widgets::{StatefulWidget, Widget};
+pub use ratatui_widgets::block::{Block, BlockExt as _};
+use ratatui_widgets::scrollbar::{Scrollbar, ScrollbarOrientation, ScrollbarState};
 
 use crate::highlight_spacing::HighlightSpacing;
 use crate::state::State;

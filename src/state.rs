@@ -1,4 +1,4 @@
-use ratatui::layout::{Position, Rect};
+use ratatui_core::layout::{Position, Rect};
 
 /// State of a [`Table`] widget
 ///
