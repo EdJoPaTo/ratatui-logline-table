@@ -1,13 +1,13 @@
 use std::error::Error;
 use std::time::{Duration, Instant, SystemTime};
 
-use crossterm::event::{Event, KeyCode, KeyModifiers, MouseEventKind};
 use ratatui::backend::{Backend, CrosstermBackend};
+use ratatui::crossterm::event::{Event, KeyCode, KeyModifiers, MouseEventKind};
 use ratatui::layout::{Constraint, Position, Rect};
 use ratatui::style::{Color, Modifier, Style};
 use ratatui::text::{Line, Span};
 use ratatui::widgets::Block;
-use ratatui::{Frame, Terminal};
+use ratatui::{Frame, Terminal, crossterm};
 use ratatui_logline_table::{State, Table};
 
 enum Update {
@@ -110,7 +110,7 @@ impl App {
     }
 
     fn draw(&mut self, frame: &mut Frame) {
-        let area = frame.size();
+        let area = frame.area();
         self.last_area = area;
         let widget = Table::new(
             &self.data,
@@ -211,7 +211,11 @@ fn main() -> Result<(), Box<dyn Error>> {
     Ok(())
 }
 
-fn run_app<B: Backend>(terminal: &mut Terminal<B>, mut app: App) -> std::io::Result<()> {
+fn run_app<B>(terminal: &mut Terminal<B>, mut app: App) -> Result<(), B::Error>
+where
+    B: Backend,
+    B::Error: From<std::io::Error>,
+{
     const DEBOUNCE: Duration = Duration::from_millis(20); // 50 FPS
     terminal.draw(|frame| app.draw(frame))?;
     let mut debounce: Option<Instant> = None;

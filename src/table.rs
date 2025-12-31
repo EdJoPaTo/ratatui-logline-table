@@ -5,9 +5,8 @@ use ratatui::buffer::Buffer;
 use ratatui::layout::{Constraint, Flex, Layout, Rect};
 use ratatui::style::{Style, Styled};
 use ratatui::text::{Line, Text};
-use ratatui::widgets::block::BlockExt as _;
 use ratatui::widgets::{
-    Block, Scrollbar, ScrollbarOrientation, ScrollbarState, StatefulWidget, Widget,
+    Block, BlockExt as _, Scrollbar, ScrollbarOrientation, ScrollbarState, StatefulWidget, Widget,
 };
 
 use crate::highlight_spacing::HighlightSpacing;
