@@ -42,7 +42,7 @@ impl App {
                 width: 0,
                 height: 0,
             },
-            render_interval: Duration::from_millis(1000), // 1 FPS
+            render_interval: Duration::from_secs(1), // 1 FPS
             render_times: Vec::new(),
             state: State::new(),
         }
