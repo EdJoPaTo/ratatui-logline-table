@@ -23,7 +23,7 @@ unused_trait_names = "warn"
 [dependencies]
 ratatui-core = { version = "0.1.0", default-features = false }
 ratatui-widgets = "0.3.0"
-strum = { version = "0.27", features = ["derive"] }
+strum = { version = "0.28", features = ["derive"] }
 
 [dev-dependencies]
 ratatui = "0.30"
