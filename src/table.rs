@@ -21,7 +21,7 @@ use crate::state::State;
 ///
 /// Table cells can be aligned, for more details see [`Line`].
 ///
-/// [`Table`] implements [`Widget`] and so it can be drawn using `Frame::render_widget`.
+/// [`Table`] implements [`Widget`] and so it can be drawn using [`Frame::render_widget`].
 ///
 /// [`Table`] is also a [`StatefulWidget`], which means you can use it with [`State`] to allow
 /// the user to scroll through the rows and select one of them. When rendering a [`Table`] with a
@@ -116,7 +116,8 @@ use crate::state::State;
 /// # }
 /// ```
 ///
-/// [`Stylize`]: ratatui::style::Stylize
+/// [`Stylize`]: ratatui_core::style::Stylize
+/// [`Frame::render_widget`]: ratatui_core::terminal::Frame::render_widget
 #[must_use]
 pub struct Table<'a, const COLUMNS: usize, Logline> {
     lines: &'a [Logline],
@@ -312,8 +313,8 @@ impl<'a, const COLUMNS: usize, Logline> Table<'a, COLUMNS, Logline> {
     /// let table = Table::new(&rows, widths, to_row).red().italic();
     /// ```
     ///
-    /// [`Color`]: ratatui::style::Color
-    /// [`Stylize`]: ratatui::style::Stylize
+    /// [`Color`]: ratatui_core::style::Color
+    /// [`Stylize`]: ratatui_core::style::Stylize
     pub fn style<S: Into<Style>>(mut self, style: S) -> Self {
         self.style = style.into();
         self
@@ -337,7 +338,7 @@ impl<'a, const COLUMNS: usize, Logline> Table<'a, COLUMNS, Logline> {
     /// # let to_row = |_index, line: &[&'static str; 2]| [Line::raw(line[0]), Line::raw(line[1])];
     /// let table = Table::new(&rows, widths, to_row).row_highlight_style(Style::new().red().italic());
     /// ```
-    /// [`Color`]: ratatui::style::Color
+    /// [`Color`]: ratatui_core::style::Color
     pub fn row_highlight_style<S: Into<Style>>(mut self, highlight_style: S) -> Self {
         self.row_highlight_style = highlight_style.into();
         self
