@@ -1,5 +1,6 @@
-use std::error::Error;
-use std::time::{Duration, Instant, SystemTime};
+use core::error::Error;
+use core::time::Duration;
+use std::time::{Instant, SystemTime};
 
 use ratatui::backend::{Backend, CrosstermBackend};
 use ratatui::crossterm::event::{Event, KeyCode, KeyModifiers, MouseEventKind};

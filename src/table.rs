@@ -1,6 +1,9 @@
 //! The [`Table`] widget is used to display multiple rows and columns in a grid and allows selecting
 //! one or multiple cells.
 
+use alloc::boxed::Box;
+use alloc::vec::Vec;
+
 use ratatui_core::buffer::Buffer;
 use ratatui_core::layout::{Constraint, Flex, Layout, Rect};
 use ratatui_core::style::{Style, Styled};
@@ -673,8 +676,6 @@ impl<const COLUMNS: usize, Logline> Styled for Table<'_, COLUMNS, Logline> {
 
 #[cfg(test)]
 mod tests {
-    use std::vec;
-
     use ratatui::style::{Color, Modifier, Style, Stylize as _};
     use ratatui::text::Line;
     use rstest::{fixture, rstest};
